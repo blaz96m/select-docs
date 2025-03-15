@@ -1,0 +1,158 @@
+.select__container {
+  width: 350px;
+}
+
+.code-block {
+  background-color: white;
+  border-radius: 5px;
+  padding: 16px;
+  overflow-x: auto;
+  font-size: 14px;
+}
+
+.code-content {
+  display: block;
+  white-space: pre-wrap; /* Ensure the code wraps if too long */
+  font-family: "Courier New", Courier, monospace;
+  color: #333;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+
+  input {
+    margin-top: 8px;
+  }
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.prop-label {
+  background: rgb(222, 235, 255);
+  color: rgb(7, 71, 166);
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 0.8em;
+  padding: 0px 0.2em;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  input {
+    margin-top: 5px;
+  }
+}
+
+.select__container {
+  margin-bottom: 20px;
+}
+
+.page {
+  display: flex;
+  padding: 20px;
+  code {
+    width: 30px;
+  }
+}
+
+.select-option-checkbox {
+  max-height: 37px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.select_container {
+  margin-bottom: 20px;
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+}
+.value-section {
+  display: flex;
+  gap: 5px;
+}
+
+.select-option-checkbox {
+  max-height: 37px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.select_top {
+  border: 1px solid #afafaf;
+
+  border-radius: 7px;
+  padding: 0px 0.7rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.select_input {
+  border: none;
+  outline: none;
+}
+
+.select_indicator {
+  padding: 10px;
+}
+
+.select_option-list_container {
+  margin-top: 10px;
+  border: 1px solid rgb(88, 88, 88);
+  overflow-y: auto;
+  max-height: 350px;
+}
+
+.select_option-list_container-empty {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select_category {
+  padding: 7px 10px;
+  font-size: 18px;
+  margin-bottom: 7px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.select_option {
+  padding: 10px 10px;
+  cursor: pointer;
+}
+
+.select_option:hover {
+  background-color: rgba(158, 207, 253, 0.384);
+}
