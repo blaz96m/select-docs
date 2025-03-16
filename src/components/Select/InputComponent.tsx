@@ -43,7 +43,7 @@ const InputSelect = () => {
       </div>
       <Select
         value={value}
-        isMultiValue={true}
+        isMultiValue={false}
         debounceInputUpdate={useDebounce}
         disableCloseOnOutsideClick={true}
         refs={{ inputRef: customInputRef }}

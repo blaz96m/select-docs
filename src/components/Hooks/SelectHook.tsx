@@ -90,7 +90,7 @@ const SelectHook = () => {
       <div onClick={focusInput} className="select_top">
         <div className="value-section">
           <p className="select_value">
-            {isEmpty(valueLabel) ? PLACEHOLDER : valueLabel}
+            {isEmpty(valueLabel) ? (inputValue ? "" : PLACEHOLDER) : valueLabel}
           </p>
           <div className="select_input_container">
             <input
