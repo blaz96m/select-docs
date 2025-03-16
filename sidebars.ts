@@ -155,7 +155,19 @@ const sidebars: SidebarsConfig = {
     },
   ],
 
-  Hooks: [{ type: "doc", id: "hooks", label: "Overview" }],
+  Hooks: [
+    { type: "doc", id: "hooks", label: "Overview" },
+    {
+      type: "link",
+      label: "useSelect",
+      href: "/docs/hooks#use-select",
+    },
+    {
+      type: "link",
+      label: "useSelectAsync",
+      href: "/docs/hooks#use-select-async",
+    },
+  ],
 };
 
 export default sidebars;

@@ -16,12 +16,12 @@ This section covers the **async functionality** of the Select component. To enab
 When using async mode, make sure to pass the `isLoading` prop to the component. This ensures that appropriate UI components and actions are disabled while fetching the data. The Select component itself does **not** handle the loading state.
 :::
 
-:::info
-The API used for these examples is the **Book Search API** from [OpenLibrary](https://openlibrary.org).
+:::caution
+Paginating data in an async enviorment via the `recordsPerPage` prop on the front-end is only avialable if the data cannot be filtered by the fetch function. If you enable fetching on input change or on page change the pagination needs to be handled on the backend in order for the Select to use infinite scroll.
 :::
 
-:::caution
-Paginating data in an async enviorment via the `recordsPerPage` prop on the front-end is only avialable if the data cannot be queried by the fetch function. If you enable fetching on input change or on page change the pagination needs to be handled on the backend in order for the Select to use infinite scroll.
+:::info
+The API used for these examples is the **Dummy JSON API** from [DumyJSON](https://dummyjson.com/).
 :::
 
 ### Lazy Init {#lazy-init}
@@ -32,31 +32,38 @@ If you dont want the fetch function to run on the initial page load but rather t
 
     ```js
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { Select, SelectOptionList } from "select-ui";
 
-const SelectAsyncBasicComponent = async () => {
-const [value, setValue] = useState < SelectOptionList > [];
+type Params = {
+searchQuery?: string;
+recordsPerPage?: number;
+page?: number;
+};
+
+const SelectAsynLazyComponent = () => {
+const [value, setValue] = useState<SelectOptionList>([]);
 const [isLoading, setIsLoading] = useState(false);
 
-const searchBooks = useCallback(async (\_: any, signal?: AbortSignal) => {
-setIsLoading(true);
+const searchProducts = useCallback(
+async ({ recordsPerPage }: Params, signal?: AbortSignal) => {
 try {
+setIsLoading(true);
 const response = await fetch(
-`https://openlibrary.org/search.json?q="lord"&limit=20`,
+`https://dummyjson.com/products/search?limit=${recordsPerPage!}&skip=0&q=phone`,
 {
-mode: "cors",
 signal,
 }
 );
 const data = await response.json();
-const mappedData = data.docs.map((doc) => ({ ...doc, id: doc.key }));
-return { data: mappedData, totalRecords: data.numFound };
+setIsLoading(false);
+return { data: data.products, totalRecords: data.total };
+
 } catch (err) {
-} finally {
 setIsLoading(false);
 }
-}, []);
+},
+[]);
 
 return (
 <React.Fragment>
@@ -64,8 +71,11 @@ return (
         labelKey="title"
         lazyInit={true}
         isMultiValue={true}
+        recordsPerPage={20}
         useAsync={true}
-        fetchFunction={searchBooks}
+        fetchOnInputChange={false}
+        fetchOnScroll={false}
+        fetchFunction={searchProducts}
         isLoading={isLoading}
         value={value}
         onChange={setValue}
@@ -74,7 +84,7 @@ return (
 );
 };
 
-export default SelectAsyncBasicComponent;
+export default SelectAsynLazyComponent;
 
     ```
 
@@ -86,19 +96,21 @@ If you wish to enable fetching on input change please pass the fetchOnInputChang
 
     ```js
 
-import React, { useState, useCallback, useReducer, useRef } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { Select, SelectOptionList } from "select-ui";
 
 type Params = {
 searchQuery?: string;
+recordsPerPage?: number;
+page?: number;
 };
 
 const SelectAsyncInput = () => {
 const [value, setValue] = useState<SelectOptionList>([]);
 const [isLoading, setIsLoading] = useState(false);
 
-const searchBooks = useCallback(
-async ({ searchQuery }: Params, signal?: AbortSignal) => {
+const searchProducts = useCallback(
+async ({searchQuery, recordsPerPage}: Params, signal?: AbortSignal) => {
 try {
 setIsLoading(true);
 const searchParam = searchQuery || "phone";
@@ -114,11 +126,11 @@ const data = await response.json();
 setIsLoading(false);
 return { data: data.products, totalRecords: data.total };
 
-      } catch (err) {
-        setIsLoading(false);
-      }
-    },
-    []
+} catch (err) {
+setIsLoading(false);
+}
+},
+[]
 
 );
 
@@ -131,9 +143,9 @@ return (
         useAsync={true}
         fetchOnInputChange={true}
         lazyInit={true}
-        fetchFunction={searchBooks}
+        fetchFunction={searchProducts}
         isLoading={isLoading}
-        recordsPerPage={10}
+        recordsPerPage={20}
         value={value}
         onChange={setValue}
       />
@@ -159,18 +171,19 @@ import { Select, SelectOptionList } from "select-ui";
 type Params = {
 searchQuery?: string;
 page?: number;
+recordsPerPage?: number;
 };
 
 const SelectAsyncPaging = () => {
 const [value, setValue] = useState<SelectOptionList>([]);
 const [isLoading, setIsLoading] = useState(false);
 
-const searchBooks = useCallback(
+const searchProducts = useCallback(
 async ({ searchQuery, page }: Params, signal?: AbortSignal) => {
 setIsLoading(true);
 const searchParam = searchQuery || "phone";
 const recordsPerPage = 15;
-const skip = (page - 1) \* recordsPerPage;
+const skip = (page - 1) \* recordsPerPage!;
 try {
 const response = await fetch(
 `https://dummyjson.com/products/search?limit=${recordsPerPage}&skip=${skip}&q=${searchParam}`,
@@ -182,7 +195,7 @@ const data = await response.json();
 return { data: data.products, totalRecords: data.total };
 } catch (err) {
 } finally {
-if (!signal.aborted) setIsLoading(false);
+if (signal && !signal.aborted) setIsLoading(false);
 }
 },
 []

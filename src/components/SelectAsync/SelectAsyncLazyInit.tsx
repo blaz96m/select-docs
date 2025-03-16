@@ -1,41 +1,52 @@
 import React, { useState, useCallback, useRef } from "react";
 import { Select, SelectOptionList } from "select-ui";
 
-const SelectAsyncBasicComponent = () => {
+type Params = {
+  searchQuery?: string;
+  recordsPerPage?: number;
+  page?: number;
+};
+
+const SelectAsynLazyComponent = () => {
   const [value, setValue] = useState<SelectOptionList>([]);
   const [isLoading, setIsLoading] = useState(false);
   const preventRef = useRef(true);
 
-  const searchBooks = useCallback(async (_: any, signal?: AbortSignal) => {
-    if (preventRef.current) {
-      setIsLoading(true);
+  const searchProducts = useCallback(
+    async ({ recordsPerPage }: Params, signal?: AbortSignal) => {
+      try {
+        if (preventRef.current) {
+          setIsLoading(true);
 
-      const recordsPerPage = 20;
-
-      const response = await fetch(
-        `https://dummyjson.com/products/search?limit=${recordsPerPage}&skip=0&q=phone`,
-        {
-          signal,
+          const response = await fetch(
+            `https://dummyjson.com/products/search?limit=${recordsPerPage!}&skip=0&q=phone`,
+            {
+              signal,
+            }
+          );
+          const data = await response.json();
+          setIsLoading(false);
+          preventRef.current = false;
+          return { data: data.products, totalRecords: data.total };
         }
-      );
-      const data = await response.json();
-      setIsLoading(false);
-      preventRef.current = false;
-      return { data: data.products, totalRecords: data.total };
-    }
-  }, []);
+      } catch (err) {
+        setIsLoading(false);
+      }
+    },
+    []
+  );
 
   return (
     <React.Fragment>
       <Select
         labelKey="title"
         lazyInit={true}
-        key="async-input"
         isMultiValue={true}
+        recordsPerPage={20}
         useAsync={true}
         fetchOnInputChange={false}
         fetchOnScroll={false}
-        fetchFunction={searchBooks}
+        fetchFunction={searchProducts}
         isLoading={isLoading}
         value={value}
         onChange={setValue}
@@ -44,4 +55,4 @@ const SelectAsyncBasicComponent = () => {
   );
 };
 
-export default SelectAsyncBasicComponent;
+export default SelectAsynLazyComponent;

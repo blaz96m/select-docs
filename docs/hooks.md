@@ -167,3 +167,114 @@ className="select_option" >
 export default SelectHook;
 
     ```
+
+### useSelect {#use-select}
+
+#### Arguments:
+
+#### selectProps:
+
+An object containing configuration options for the hook.
+
+#### selectProps values
+
+| Property Name                   | Description                                                                                                                       |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `isMultiValue`                  | Boolean that determines if multiple values can be selected inside the select.                                                     |
+| `customState`                   | An object that holds custom state values specific to the select component.                                                        |
+| `customStateSetters`            | Functions to update `customState`.                                                                                                |
+| `labelKey`                      | Specifies the key in the select options used as the display label.                                                                |
+| `fetchOnInputChange`            | Boolean that determines if the fetch function will get called when the input value changes.                                       |
+| `clearInputOnIdicatorClick`     | A boolean that determines whether the input field will be cleared when the clear indicator (e.g., "X" button) is clicked.         |
+| `defaultSelectOptions`          | Default options available in the select dropdown.                                                                                 |
+| `optionFilter`                  | A function that takes an individual option (iteratee) as an argument and filters the list of options based on the provided logic. |
+| `closeDropdownOnSelect`         | Boolean that determines if the dropdown should close after an option is selected.                                                 |
+| `clearInputOnSelect`            | A boolean that determines whether the input field should be cleared when an option is selected.                                   |
+| `preventInputUpdate`            | Function holding custom logic to prevent input updates under certain conditions.                                                  |
+| `clearValueOnInputChange`       | Boolean that determines if the value should get cleared after the input value gets updated.                                       |
+| `fetchOnScroll`                 | Boolean that determines if the fetch function should be called on page change triggered by scroll.                                |
+| `hasInput`                      | Boolean that indicates if the component has an input field for searching.                                                         |
+| `useAsync`                      | Boolean that determines if options should be loaded asynchronously.                                                               |
+| `categoryKey`                   | Specifies a key used for categorizing options.                                                                                    |
+| `removeSelectedOptionsFromList` | Boolean that determines if the selected options should be removed from the dropdown list.                                         |
+| `sortFunction`                  | Custom sorting function for the options list.                                                                                     |
+| `debounceInputUpdate`           | Enables debouncing for input updates to optimize performance.                                                                     |
+| `inputUpdateDebounceDuration`   | Time in milliseconds to wait before updating input.                                                                               |
+| `recordsPerPage`                | Number of records to fetch per page for pagination.                                                                               |
+| `isLoading`                     | Boolean that Indicates if data is currently being loaded.                                                                         |
+| `isCategorized`                 | Boolean that determines if the options should be displayed in categories.                                                         |
+| `inputFilterFunction`           | Custom function to filter options based on input.                                                                                 |
+
+#### Returns:
+
+#### SelectApi
+
+An object that provides access to key functionalities and state management of the select component.
+
+#### SelectApi properties
+
+| Property Name              | Description                                                                                                              |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `selectState`              | Object that holds the current state of the select component.                                                             |
+| `selectStateUpdaters`      | Functions to update `selectState`.                                                                                       |
+| `selectFocusState`         | Object taht holds the focus state details of the select options.                                                         |
+| `selectFocusHandlers`      | Functions to handle focus-related events like keyboard events and hovering.                                              |
+| `handleOptionsInputFilter` | Filters available options based on the provided input value.                                                             |
+| `usesInputAsync`           | Boolean that determines if the select component fetches options asynchronously via input change.                         |
+| `onOptionSelect`           | Function that handles the selection or deselection of an option.                                                         |
+| `isLastPage`               | Returns `true` if there are no more pages of options to load.                                                            |
+| `preventInputUpdate`       | Function that holds the resolved logic to prevent updates to the input value under certain conditions.                   |
+| `selectEventHandlers`      | Default event handlers for managing user interactions with the select component.                                         |
+| `displayedOptions`         | The list of currently displayed options, either flat or categorized.                                                     |
+| `getOriginalOptions`       | Returns the full list of unfiltered options.                                                                             |
+| `setOriginalOptions`       | Updates the full list of unfiltered options.                                                                             |
+| `getSelectOptionsMap`      | Returns a `Map` of option elements for DOM manipulation.                                                                 |
+| `closeDropdownOnSelect`    | Boolean that etermines whether the dropdown should close after selecting an option.                                      |
+| `closeDropdown`            | Programmatically closes the dropdown menu.                                                                               |
+| `focusInput`               | Programmatically focuses the input field.                                                                                |
+| `selectDomRefs`            | Contains references to key DOM elements within the select component.                                                     |
+| `handlePageReset`          | Resets the pagination state to the first page.                                                                           |
+| `clearInputOnSelect`       | A boolean that determines whether the input field should be cleared when an option is selected. Holds the resolved value |
+| `loadNextPage`             | Increments the state of the page.                                                                                        |
+| `filterSearchedOptions`    | Filters the options based on the current input value.                                                                    |
+
+### useSelectAsync {#use-select-async}
+
+#### Arguments:
+
+#### selectApi:
+
+The SelectApi
+
+#### selectProps:
+
+An object containing configuration options for the hook.
+
+#### selectProps values
+
+| Property Name                   | Description                                                                                                                                         |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `updateSelectOptionsAfterFetch` | A boolean that determines whether the select options should be updated after a fetch operation.                                                     |
+| `fetchFunction`                 | A function used to fetch select options asynchronously.                                                                                             |
+| `useAsync`                      | A boolean that indicates if the select options should be fetched asynchronously.                                                                    |
+| `inputUpdateDebounceDuration`   | The duration in milliseconds to debounce the input update.                                                                                          |
+| `isLoading`                     | A boolean that indicates if the select options are currently being loaded.                                                                          |
+| `recordsPerPage`                | The number of records to fetch per page for pagination.                                                                                             |
+| `fetchOnInputChange`            | A boolean that determines if the fetch function should be called when the input value changes.                                                      |
+| `isLazyInit`                    | A boolean that determines whether the fetch function should be called when the dropdown is expanded for the first time, as opposed to on page load. |
+| `fetchOnScroll`                 | A boolean that determines if the fetch function should be called on page change triggered by scroll.                                                |
+
+#### Returns:
+
+#### SelectAsyncApi
+
+An object that provides information based on the async operations of the component.
+
+#### SelectAsyncApi properties:
+
+| Property Name           | Description                                                                                                                                                    |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `isLastPage`            | A function that returns a boolean indicating if the current page is the last page of options.                                                                  |
+| `isInitialFetch`        | A function that returns a boolean indicating if the current fetch is the initial fetch.                                                                        |
+| `fetchOnScrollToBottom` | A boolean that determines if the fetch function should be triggered when scrolling to the bottom (return true if useAsync and fetchOnScroll are set to true ). |
+| `loadNextPageAsync`     | A function that loads the next page of options asynchronously.                                                                                                 |

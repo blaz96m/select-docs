@@ -17,7 +17,6 @@ const SelectAsyncBasicComponent = () => {
       );
       const data = await response.json();
       const mappedData = data.docs.map((doc) => ({ ...doc, id: doc.key }));
-      console.log(mappedData);
       return { data: mappedData, totalRecords: data.numFound };
     } catch (err) {
     } finally {

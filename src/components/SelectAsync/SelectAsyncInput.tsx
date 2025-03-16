@@ -1,8 +1,10 @@
-import React, { useState, useCallback, useReducer, useRef } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import { Select, SelectOptionList } from "select-ui";
 
 type Params = {
   searchQuery?: string;
+  recordsPerPage?: number;
+  page?: number;
 };
 
 const SelectAsyncInput = () => {
@@ -11,13 +13,12 @@ const SelectAsyncInput = () => {
   const prevInputRef = useRef("");
   const isInitalRef = useRef(true);
 
-  const searchBooks = useCallback(
-    async ({ searchQuery }: Params, signal?: AbortSignal) => {
+  const searchProducts = useCallback(
+    async ({ searchQuery, recordsPerPage }: Params, signal?: AbortSignal) => {
       try {
         if (prevInputRef.current !== searchQuery || isInitalRef.current) {
           setIsLoading(true);
           const searchParam = searchQuery || "phone";
-          const recordsPerPage = 30;
 
           const response = await fetch(
             `https://dummyjson.com/products/search?limit=${recordsPerPage}&skip=0&q=${searchParam}`,
@@ -28,7 +29,6 @@ const SelectAsyncInput = () => {
           const data = await response.json();
           prevInputRef.current = searchQuery;
           isInitalRef.current = false;
-          console.log(data);
           setIsLoading(false);
           return { data: data.products, totalRecords: data.total };
         }
@@ -48,9 +48,9 @@ const SelectAsyncInput = () => {
         useAsync={true}
         fetchOnInputChange={true}
         lazyInit={true}
-        fetchFunction={searchBooks}
+        fetchFunction={searchProducts}
         isLoading={isLoading}
-        recordsPerPage={10}
+        recordsPerPage={20}
         value={value}
         onChange={setValue}
       />

@@ -26,7 +26,7 @@ Here are the default behaviours for both the single and multi value components.
 | Clear input on select            | <div className="center-icon">✅</div> | <div className="center-icon">❌</div> |
 | Will get cleared on input change | <div className="center-icon">✅</div> | <div className="center-icon">❌</div> |
 
-#### Single Value Example {#single-value}
+#### Single Value {#single-value}
 
 <SingleValueComponent />
 
@@ -67,7 +67,7 @@ export default SingleValue;
 
     ```
 
-#### Multi Value Example {#multi-value}
+#### Multi Value {#multi-value}
 
 <MultiValue />
 
@@ -115,7 +115,7 @@ The options of the select list can be filtered by the input value of the compone
 
 We will showcase these functionalities in the following examples.
 
-#### Input Filter Example {#input-select}
+#### Select Input Filter {#input-select}
 
 <InputComponent />
 
@@ -170,7 +170,7 @@ export default InputSelect;
 
     ```
 
-#### Custom Filter Example {#filter-select}
+#### Select Custom Filter {#filter-select}
 
 <FilterSelect />
 
@@ -263,9 +263,9 @@ export default FilterSelect;
 
     ```
 
-#### Select Paging Example {#select-paging}
+#### Select Paging {#select-paging}
 
-In a non async enviorment the option list can also be paginated by providing the `recordsPerPage` prop. This will enable infiniteScroll and control the amount of options rendered in the list.
+The option list can also be paginated by providing the `recordsPerPage` prop. This will enable infiniteScroll and control the amount of options rendered in the list.
 
 <SelectPaging />
 
@@ -292,6 +292,21 @@ const options = [
 { id: 13, name: "Cranberry", type: "fruit" },
 { id: 14, name: "Lettuce", type: "vegetable" },
 { id: 15, name: "Cauliflower", type: "vegetable" },
+{ id: 16, name: "Asparagus", type: "vegetable" },
+{ id: 17, name: "Radish", type: "vegetable" },
+{ id: 18, name: "Mango", type: "fruit" },
+{ id: 19, name: "Papaya", type: "fruit" },
+{ id: 20, name: "Raspberry", type: "fruit" },
+{ id: 21, name: "Brussels Sprouts", type: "vegetable" },
+{ id: 22, name: "Zucchini", type: "vegetable" },
+{ id: 23, name: "Blackberry", type: "fruit" },
+{ id: 24, name: "Fig", type: "fruit" },
+{ id: 25, name: "Pomegranate", type: "fruit" },
+{ id: 26, name: "Cucumber", type: "vegetable" },
+{ id: 27, name: "Turnip", type: "vegetable" },
+{ id: 28, name: "Grapefruit", type: "fruit" },
+{ id: 29, name: "Pear", type: "fruit" },
+{ id: 30, name: "Celery", type: "vegetable" },
 ];
 
 const PagedSelect = () => {

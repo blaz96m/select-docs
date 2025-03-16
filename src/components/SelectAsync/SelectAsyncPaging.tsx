@@ -4,18 +4,22 @@ import { Select, SelectOptionList } from "select-ui";
 type Params = {
   searchQuery?: string;
   page?: number;
+  recordsPerPage?: number;
 };
 
 const SelectAsyncPaging = () => {
   const [value, setValue] = useState<SelectOptionList>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const searchBooks = useCallback(
-    async ({ searchQuery, page }: Params, signal?: AbortSignal) => {
+  const searchProducts = useCallback(
+    async (
+      { searchQuery, page = 1, recordsPerPage }: Params,
+      signal?: AbortSignal
+    ) => {
       setIsLoading(true);
-      const searchParam = searchQuery || "phone";
-      const recordsPerPage = 15;
-      const skip = (page - 1) * recordsPerPage;
+      const defaultQuery = "a";
+      const searchParam = searchQuery || defaultQuery;
+      const skip = (page - 1) * recordsPerPage!;
       try {
         const response = await fetch(
           `https://dummyjson.com/products/search?limit=${recordsPerPage}&skip=${skip}&q=${searchParam}`,
@@ -27,7 +31,7 @@ const SelectAsyncPaging = () => {
         return { data: data.products, totalRecords: data.total };
       } catch (err) {
       } finally {
-        if (!signal.aborted) setIsLoading(false);
+        if (signal && !signal.aborted) setIsLoading(false);
       }
     },
     []
@@ -43,7 +47,7 @@ const SelectAsyncPaging = () => {
         lazyInit={true}
         fetchOnInputChange={true}
         fetchOnScroll={true}
-        fetchFunction={searchBooks}
+        fetchFunction={searchProducts}
         isLoading={isLoading}
         value={value}
         onChange={setValue}

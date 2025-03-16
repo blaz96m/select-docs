@@ -30,7 +30,6 @@ const FilterSelect = () => {
   const customFilter = useCallback(
     (option: Plant) => {
       if (filterBy) {
-        console.log(filterBy);
         return option.type === filterBy;
       }
       return true;
