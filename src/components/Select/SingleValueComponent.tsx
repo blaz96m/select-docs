@@ -1,6 +1,7 @@
-import { useState } from "react";
 import "./style.css";
-import { Select } from "select-ui";
+import { useState } from "react";
+
+import { Select } from "react-select-ui";
 
 type Plant = {
   id: number;

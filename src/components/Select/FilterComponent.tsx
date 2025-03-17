@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 
 import "./style.css";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 type Plant = {
   id: number;

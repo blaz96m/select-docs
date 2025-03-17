@@ -3,7 +3,7 @@ import {
   Select,
   SelectOptionList,
   CustomSelectOptionComponent,
-} from "select-ui";
+} from "react-select-ui";
 
 const options = [
   { id: 1, name: "Orange", type: "fruit" },

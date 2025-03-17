@@ -33,7 +33,7 @@ If you dont want the fetch function to run on the initial page load but rather t
     ```js
 
 import React, { useState, useCallback, useRef } from "react";
-import { Select, SelectOptionList } from "select-ui";
+import { Select, SelectOptionList } from "react-select-ui";
 
 type Params = {
 searchQuery?: string;
@@ -97,7 +97,7 @@ If you wish to enable fetching on input change please pass the fetchOnInputChang
     ```js
 
 import React, { useState, useCallback, useRef } from "react";
-import { Select, SelectOptionList } from "select-ui";
+import { Select, SelectOptionList } from "react-select-ui";
 
 type Params = {
 searchQuery?: string;
@@ -166,7 +166,7 @@ If you whish to enable infinite scrolling for the async functionality you can pa
     ```js
 
 import React, { useState, useCallback } from "react";
-import { Select, SelectOptionList } from "select-ui";
+import { Select, SelectOptionList } from "react-select-ui";
 
 type Params = {
 searchQuery?: string;

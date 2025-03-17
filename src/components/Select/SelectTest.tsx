@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useRef } from "react";
-import { Select, SelectOptionList } from "select-ui";
+import { Select, SelectOptionList } from "react-select-ui";
 
 type Params = {
   searchQuery?: string;

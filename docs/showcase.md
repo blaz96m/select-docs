@@ -34,7 +34,7 @@ Here are the default behaviours for both the single and multi value components.
     import { useState } from "react";
 
 import "./style.css";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 const options = [
 { id: 1, name: "Orange", type: "fruit" },
@@ -75,7 +75,7 @@ export default SingleValue;
 
 import { useState } from "react";
 import "./style.css";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 const options = [
 { id: 1, name: "Orange", type: "fruit" },
@@ -123,7 +123,7 @@ We will showcase these functionalities in the following examples.
 
 import React, { useState } from "react";
 import "./style.css";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 const options = [
 { id: 1, name: "Orange", type: "fruit" },
@@ -179,7 +179,7 @@ export default InputSelect;
 import React, { useCallback, useState } from "react";
 
 import "./style.css";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 type Plant = {
 id: number;
@@ -274,7 +274,7 @@ The option list can also be paginated by providing the `recordsPerPage` prop. Th
 import React, { useState } from "react";
 
 import "./style.css";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 const options = [
 { id: 1, name: "Orange", type: "fruit" },
@@ -340,7 +340,7 @@ In order to enable the categorization feature, you need to pass the `isCategoriz
 
 ```js
 import { useState } from "react";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 import "./style.css";
 
 const options = [

@@ -55,7 +55,7 @@ export default function Home(): ReactNode {
         </div>
 
         <pre className="code-block">
-          <code>npm i select-ui</code>
+          <code>npm i react-select-ui</code>
         </pre>
 
         <p className="follow-up-text">

@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Select, SelectOptionList } from "select-ui";
+import { Select, SelectOptionList } from "react-select-ui";
 
 const SelectAsyncBasicComponent = () => {
   const [value, setValue] = useState<SelectOptionList>([]);

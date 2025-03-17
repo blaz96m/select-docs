@@ -5,7 +5,7 @@ import {
   SelectOptionList,
   CustomState,
   CustomStateSetters,
-} from "select-ui";
+} from "react-select-ui";
 
 import { isEmpty, map } from "lodash";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 import "./style.css";
 
 type Plant = {

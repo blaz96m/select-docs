@@ -27,7 +27,7 @@ CategorizedSelectOptions,
 SelectOptionList,
 CustomState,
 CustomStateSetters,
-} from "select-ui";
+} from "react-select-ui";
 
 import { isEmpty, map } from "lodash";
 
@@ -217,7 +217,7 @@ An object that provides access to key functionalities and state management of th
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | `selectState`              | Object that holds the current state of the select component.                                                             |
 | `selectStateUpdaters`      | Functions to update `selectState`.                                                                                       |
-| `selectFocusState`         | Object taht holds the focus state details of the select options.                                                         |
+| `selectFocusState`         | Object that holds the focus state details of the select options.                                                         |
 | `selectFocusHandlers`      | Functions to handle focus-related events like keyboard events and hovering.                                              |
 | `handleOptionsInputFilter` | Filters available options based on the provided input value.                                                             |
 | `usesInputAsync`           | Boolean that determines if the select component fetches options asynchronously via input change.                         |

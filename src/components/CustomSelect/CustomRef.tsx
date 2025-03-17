@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 type Plant = {
   id: number;

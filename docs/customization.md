@@ -30,7 +30,7 @@ import {
 Select,
 SelectOptionList,
 CustomSelectOptionComponent,
-} from "select-ui";
+} from "react-select-ui";
 
 const options = [
 { id: 1, name: "Orange", type: "fruit" },
@@ -515,7 +515,7 @@ Here is a simple example with a button that will focus the input of the select c
 ```js
 
 import React, { useRef, useState } from "react";
-import { Select } from "select-ui";
+import { Select } from "react-select-ui";
 
 type Plant = {
 id: number;
