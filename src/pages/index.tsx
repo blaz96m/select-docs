@@ -62,10 +62,6 @@ export default function Home(): ReactNode {
           Once installed, you can import the Select component in your project,
           and you are good to go.
         </p>
-
-        <p className="follow-up-text">
-          Lets start with the <a href="docs/showcase">Basic Functionality</a>
-        </p>
       </div>
     </Layout>
   );
