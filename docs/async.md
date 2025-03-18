@@ -179,10 +179,13 @@ const [value, setValue] = useState<SelectOptionList>([]);
 const [isLoading, setIsLoading] = useState(false);
 
 const searchProducts = useCallback(
-async ({ searchQuery, page }: Params, signal?: AbortSignal) => {
+async (
+{ searchQuery, page = 1, recordsPerPage }: Params,
+signal?: AbortSignal
+) => {
 setIsLoading(true);
-const searchParam = searchQuery || "phone";
-const recordsPerPage = 15;
+const defaultQuery = "a";
+const searchParam = searchQuery || defaultQuery;
 const skip = (page - 1) \* recordsPerPage!;
 try {
 const response = await fetch(
@@ -207,10 +210,11 @@ return (
         labelKey="title"
         isMultiValue={true}
         useAsync={true}
+        recordsPerPage={15}
         lazyInit={true}
         fetchOnInputChange={true}
         fetchOnScroll={true}
-        fetchFunction={searchBooks}
+        fetchFunction={searchProducts}
         isLoading={isLoading}
         value={value}
         onChange={setValue}
