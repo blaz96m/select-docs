@@ -48,6 +48,17 @@ export default function Home(): ReactNode {
         </p>
         <h2 className="section-title">Getting Started</h2>
 
+        <div className="warning-label">
+          <svg className="warning-icon" viewBox="0 0 24 24">
+            <path
+              fill="currentColor"
+              d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"
+            />
+          </svg>
+          This project is compatible with React v18. Support for React v19 is
+          not available yet.
+        </div>
+
         <div className="info-container">
           <p className="intro-text">
             To get started, simply install the package via npm:
