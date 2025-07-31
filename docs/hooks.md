@@ -16,7 +16,7 @@ The last part of this documentation covers the hooks of the Select component, wh
 
 ### Example
 
-Here’s a simple example of a custom, lightweight Select component that can be opened and closed by clicking on the dropdown indicator button as opossed to the container itself. The functionality is entirely managed by the `useSelect` hook.
+Here’s a simple example of a custom, lightweight Select component that can be opened and closed by clicking the dropdown indicator button, as opposed to the container itself. The functionality is entirely managed by the `useSelect` hook.
 <SelectHook />
 
 <CodeToggle >
