@@ -6,6 +6,7 @@ title: Select Hooks
 import {
 SelectHook
 } from "@site/src/components/Hooks";
+import {CodeToggle} from "@site/src/components/Other";
 
 The last part of this documentation covers the hooks of the Select component, which can also be imported directly from the library. So far, we've explored the functionality of the component and the customization of its parts. But what if you want to maintain the logic and functionality of the Select while integrating it into your custom-built component? This is where the`useSelect`and`useSelectAsync` hooks come into play. These hooks encapsulate all the logic required to build the functionality of the Select component.
 
@@ -15,10 +16,11 @@ The last part of this documentation covers the hooks of the Select component, wh
 
 ### Example
 
-Here’s a simple example of a custom, lightweight Select component that can only be opened and closed by clicking on the dropdown indicator button, rather than the entire container. The functionality is entirely managed by the `useSelect` hook.
+Here’s a simple example of a custom, lightweight Select component that can be opened and closed by clicking on the dropdown indicator button as opossed to the container itself. The functionality is entirely managed by the `useSelect` hook.
 <SelectHook />
 
-    ```js
+<CodeToggle >
+    ```jsx
 
 import React, { useState, useRef, useCallback } from "react";
 import {
@@ -167,6 +169,7 @@ className="select_option" >
 export default SelectHook;
 
     ```
+</CodeToggle> 
 
 ### useSelect {#use-select}
 

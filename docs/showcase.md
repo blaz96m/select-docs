@@ -11,6 +11,7 @@ InputComponent,
 FilterSelect,
 SelectPaging
 } from "@site/src/components/Select";
+import {CodeToggle} from "@site/src/components/Other";
 
 In this section we will cover the base functionality of the component, mostly focusing on its value and options states
 
@@ -27,10 +28,9 @@ Here are the default behaviours for both the single and multi value components.
 | Will get cleared on input change | <div className="center-icon">✅</div> | <div className="center-icon">❌</div> |
 
 #### Single Value {#single-value}
-
 <SingleValueComponent />
-
-    ```js
+<CodeToggle>
+    ```jsx
     import { useState } from "react";
 
 import "./style.css";
@@ -66,12 +66,13 @@ return (
 export default SingleValue;
 
     ```
+    </CodeToggle>
 
 #### Multi Value {#multi-value}
 
 <MultiValue />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import { useState } from "react";
 import "./style.css";
@@ -108,6 +109,7 @@ return (
 export default MultiValue;
 
     ```
+      </CodeToggle>
 
 ## Options
 
@@ -118,8 +120,8 @@ We will showcase these functionalities in the following examples.
 #### Select Input Filter {#input-select}
 
 <InputComponent />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import React, { useState } from "react";
 import "./style.css";
@@ -169,12 +171,13 @@ onChange={() => setUseDebounce((oldState) => !oldState)}
 export default InputSelect;
 
     ```
+        </CodeToggle>
 
 #### Select Custom Filter {#filter-select}
 
 <FilterSelect />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import React, { useCallback, useState } from "react";
 
@@ -262,14 +265,15 @@ hasInput={true}
 export default FilterSelect;
 
     ```
+    </CodeToggle>
 
 #### Select Paging {#select-paging}
 
 The option list can also be paginated by providing the `recordsPerPage` prop. This will enable infiniteScroll and control the amount of options rendered in the list.
 
 <SelectPaging />
-
-    ```js
+<CodeToggle>
+    ```jsx
 
 import React, { useState } from "react";
 
@@ -330,6 +334,8 @@ return (
 export default PagedSelect;
 
     ```
+    </CodeToggle>
+    
 
 #### Categorized Options Example {#categorized-options}
 
@@ -337,8 +343,8 @@ The select options can either be rendered as a regular list or they can be categ
 In order to enable the categorization feature, you need to pass the `isCategorized` prop as true, and also provide a `categoryKey` prop.
 
 <CategorizedValues />
-
-```js
+    <CodeToggle>
+```jsx
 import { useState } from "react";
 import { Select } from "react-select-ui";
 import "./style.css";
@@ -402,3 +408,4 @@ const CategorizedValues = () => {
 export default CategorizedValues;
 
 ```
+    </CodeToggle>

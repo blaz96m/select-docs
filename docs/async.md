@@ -9,6 +9,7 @@ SelectAsyncLazyInit,
 SelectAsyncInput,
 SelectAsyncBasic,
 } from "@site/src/components/SelectAsync";
+import {CodeToggle} from "@site/src/components/Other";
 
 This section covers the **async functionality** of the Select component. To enable async mode, set the `useAsync` prop to `true` and provide a `fetchFunction` that handles data fetching. The component can also manage query parameters state of the request for you .
 
@@ -29,8 +30,8 @@ The API used for these examples is the **Dummy JSON API** from [DumyJSON](https:
 If you dont want the fetch function to run on the initial page load but rather the first time the dropdown gets expanded you can set the `lazyInit` prop as true to accomplish this.
 
 <SelectAsyncLazyInit />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import React, { useState, useCallback, useRef } from "react";
 import { Select, SelectOptionList } from "react-select-ui";
@@ -87,14 +88,15 @@ return (
 export default SelectAsynLazyComponent;
 
     ```
+        </CodeToggle>
 
 ### Fetch On Input Change {#async-input}
 
 If you wish to enable fetching on input change please pass the fetchOnInputChange prop as true. The triggering of the fetch function after the input update is debounced with a default duration of 500. You can tweak the duration of the debounce via the inputUpdateDebounceDuration prop. You will recieve the search query value in the params object that gets passed as the first argument of the fetchFunction.
 
 <SelectAsyncInput />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import React, { useState, useCallback, useRef } from "react";
 import { Select, SelectOptionList } from "react-select-ui";
@@ -156,14 +158,15 @@ return (
 export default SelectAsyncInput;
 
     ```
+        </CodeToggle>
 
 ### Fetch On Scroll {#async-paging}
 
 If you whish to enable infinite scrolling for the async functionality you can pass the fetchOnScroll prop as true. The page number will be accessible in the first parameter of the fetch function along with the search query value.
 
 <SelectAsyncPaging />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import React, { useState, useCallback } from "react";
 import { Select, SelectOptionList } from "react-select-ui";
@@ -226,3 +229,4 @@ return (
 export default SelectAsyncPaging;
 
     ```
+        </CodeToggle>

@@ -55,7 +55,6 @@ const SelectHook = () => {
     labelKey: "name",
     clearValueOnInputChange: true,
     isCategorized: true,
-    closeDropdownOnSelect: false,
     categoryKey: "type",
   });
 

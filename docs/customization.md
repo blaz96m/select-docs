@@ -7,6 +7,7 @@ import {
 CustomComponent,
 CustomRef
 } from "@site/src/components/CustomSelect";
+import {CodeToggle} from "@site/src/components/Other";
 
 ## Custom Components {#custom-components}
 
@@ -22,8 +23,8 @@ You will receive two arguments for your custom component renderer function:
 Here is a simple example where we create a custom option component that contains a checkmark.
 
 <CustomComponent />
-
-    ```js
+    <CodeToggle>
+    ```jsx
 
 import React, { useState, useCallback } from "react";
 import {
@@ -85,6 +86,7 @@ onChange={setValue}
 export default CustomSelectComponent;
 
     ```
+        </CodeToggle>
 
 Below is a list of every custom component you can pass to the `customComponents` prop, along with the `componentProps` and `innerProps` they provide.
 
@@ -511,8 +513,8 @@ If you want to pass your own custom refs for the Select input and option list co
 Here is a simple example with a button that will focus the input of the select component when clicked.
 
 <CustomRef/>
-
-```js
+    <CodeToggle>
+```jsx
 
 import React, { useRef, useState } from "react";
 import { Select } from "react-select-ui";
@@ -566,6 +568,7 @@ return (
 export default CustomSelectRef;
 
 ```
+    </CodeToggle>
 
 ## Type Definitions
 
